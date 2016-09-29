@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KTa1 : la voie du JSedi</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <script type="text/javascript" src="lib.js"></script>
+    <script type="text/javascript" src="markdown.js"></script>
+</head>
+
+<body onload="init()">
+
+<header class="top-header">
+    <h1>KTa1 <span class="lang">JS</span> <span class="subtil">alpha.1</span></h1>
+</header>
+
+
+<div class="row">
+    <nav class="menu" >
+        <ul id="kata-menu">
+        </ul>
+    </nav>
+
+    <div class="page">
+        <!--<div id="kataHeader"></div>-->
+        <a id="bt-feedback" href="#" class="topbar-bt" onclick="app.showFeedbackForm()">
+            <i class="material-icons">feedback</i><span class="over-legend">Des remarques ?</span>
+        </a>
+
+        <section id="instruction" class="instruction">
+            <div id="description"/>
+            <!--<div id="hinte"/>-->
+        </section>
+
+        <section class="playground">
+            <div id="editor"></div>
+            <nav class="bar">
+                <a id="bt-hint" class="action help" onclick="app.hint()" href="#"><i class="material-icons">explore</i> Indice</a>
+
+                <div class="subbar">
+                    <a id="bt-reset" class="discrete" onclick="app.reset()" href="#"><i class="material-icons">restore_page</i>Réinitialiser</a>
+                    <a id="bt-send" class="action" onclick="app.send()" href="#"><i class="material-icons">input</i>Éxecuter</a>
+                </div>
+                <a id="bt-next" class="action" onclick="app.next()" href="#">Suite</a>
+            </nav>
+
+            <div id="feed"></div>
+        </section>
+        <section id="feedback-form" >
+            <header>
+                <h3><i class="material-icons">feedback</i> Votre avis m'intéresse</h3>
+            </header>
+            <input  id="fldMail" type="text" class="contact-form" placeholder="Votre mail"/>
+            <textarea id="fldMsg" class="contact-form" placeholder="Votre message" rows="4"></textarea>
+            <div class="toolbar">
+                <a href="#" onclick="app.closeFeedbackForm()">Annuler</a>
+                <button onclick="app.sendMail( byId('fldMail').value,byId('fldMsg').value )">Envoyer</button>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.4/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.4/ext-language_tools.js" type="text/javascript"
+        charset="utf-8"></script>
+<script>
+    ace.require("ace/ext/language_tools");
+    var editor = ace.edit("editor");
+    //editor.setTheme("ace/theme/idle_fingers");
+    //editor.setTheme("ace/theme/tomorrow_night");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+    editor.$blockScrolling = Infinity;
+    editor.setOptions({
+        enableBasicAutocompletion: true
+    });
+    editor.focus();
+</script>
+<script type="text/javascript" src="app.js"></script>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-56074942-3', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
