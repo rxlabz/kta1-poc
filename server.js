@@ -18,8 +18,8 @@ var smtpConfig = {
     port: 465,
     secure: true, // use SSL
     auth: {
-        user: 'module.e@gmail.com',
-        pass: 'W3r4srk0#2412'
+        user: 'YOUR_MAIL',
+        pass: 'YOUR_PASS'
     }
 };
 
