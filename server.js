@@ -38,8 +38,8 @@ function sendMail(msg, sender) {
     });
 
     var mailData = {
-        from: 'module.e@gmail.com',
-        to: 'erick@rxlabz.com',
+        from: 'FROM_MAIL',
+        to: 'YOUR_MAIL',
         subject: 'Test nodemail',
         text: sender + '\n' + msg
     };
@@ -53,11 +53,13 @@ app.post('/mail', function (req, res) {
     res.send('{"res":"ok"}');
 });
 
+/*
 app.use(function (req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
  next();
  });
+*/
 
 app.post('/run', function (req, res) {
     console.log('/run', req.body.methodName);
